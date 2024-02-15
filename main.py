@@ -118,8 +118,8 @@ while menu:
 
     font = pygame.font.Font(None, 69)
     # Draw buttons
-    draw_button("Start", font, (240, 100, 100), (100, 100, 100), screen, 300, 200, 200, 100, start_game)
-    draw_button("Quit", font, (240, 100, 100), (100, 100, 100), screen, 300, 350, 200, 100, quit_game)
+    draw_button("Start", font, (100, 240, 100), (100, 160, 100), screen, 300, 200, 200, 100, start_game)
+    draw_button("Quit", font, (240, 100, 100), (160, 100, 100), screen, 300, 350, 200, 100, quit_game)
 
     pygame.display.flip()
     clock.tick(30)
@@ -196,7 +196,8 @@ while playing:
         elif player.color == (0, 0, 255):
             indicator = pygame.Rect(120, 0, 70, 70)
 
-        pygame.draw.rect(screen, (0, 0, 0), indicator)
+        if not (player.redBulletUsed and player.greenBulletUsed and player.blueBulletUsed):
+            pygame.draw.rect(screen, (0, 0, 0), indicator)
 
         # show remaining bullets
         if not player.redBulletUsed:
