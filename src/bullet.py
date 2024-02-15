@@ -1,10 +1,11 @@
 import pygame
 
 class Bullet(pygame.sprite.Sprite):
-    def __init__(self, start_pos, direction):
+    def __init__(self, start_pos, direction, color):
         super().__init__()
-        self.image = pygame.Surface((5, 5))
-        self.image.fill((255, 0, 0))
+        self.image = pygame.Surface((20, 20))
+        self.image.fill(color)
+        self.color = color
         self.rect = self.image.get_rect(center=start_pos)
         self.speed = 10
         self.direction = direction
